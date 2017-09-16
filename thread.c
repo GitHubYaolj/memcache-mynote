@@ -444,7 +444,7 @@ void dispatch_conn_new(int sfd, enum conn_states init_state, int event_flags,
     last_thread = tid;
 
     item->sfd = sfd;//将accept的连接socket加入CQ_ITEM
-    item->init_state = init_state;
+    item->init_state = init_state;//drive_machine里conn_listening时conn_new_cmd
     item->event_flags = event_flags;
     item->read_buffer_size = read_buffer_size;
     item->transport = transport;
